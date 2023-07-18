@@ -60,7 +60,7 @@ def getFeatures(url, label):
 
 start_time = time.time()
 
-blacklist = pd.read_csv("/Users/PycharmProjects/miniproject/black_list.csv")
+blacklist = pd.read_csv("miniproject/black_list.csv")
 data_for_modal = pd.read_csv("urls.csv")
 x = data_for_modal.drop(['url', 'type'], axis=1).values
 y = data_for_modal['type'].values
