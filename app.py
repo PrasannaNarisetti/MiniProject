@@ -67,7 +67,7 @@ def getFeatures(url, label):
 @app.route('/model', methods=['GET', 'POST'])
 def model():
     url = request.form['search']
-    black_list = pd.read_csv("/Users/PycharmProjects/minipro/black_list.csv")
+    black_list = pd.read_csv("minipro/black_list.csv")
     x = url in black_list
     if x:
         res = "URL seems to be not safe"
@@ -84,7 +84,7 @@ def model():
             res = "URL seems to be not safe"
             new_df = [url]
             black_list.loc[len(black_list)] = new_df
-            black_list.to_csv("/Users/PycharmProjects/minipro/black_list.csv", index=False)
+            black_list.to_csv("minipro/black_list.csv", index=False)
     return render_template("index.html", Result=res)
 if __name__ == "__main__":
     app.run(debug=True)
